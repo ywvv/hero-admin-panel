@@ -19,5 +19,31 @@
       "element": "water"
     }
   ],
-  "filters": ["all", "fire", "water", "wind", "earth"]
+  "filters": [
+    {
+      "name": "all",
+      "label": "All",
+      "className": "btn btn-outline-dark"
+    },
+    {
+      "name": "fire",
+      "label": "Fire",
+      "className": "btn btn-danger"
+    },
+    {
+      "name": "water",
+      "label": "Water",
+      "className": "btn btn-primary"
+    },
+    {
+      "name": "wind",
+      "label": "Wind",
+      "className": "btn btn-success"
+    },
+    {
+      "name": "earth",
+      "label": "Earth",
+      "className": "btn btn-secondary"
+    }
+  ]
 }
