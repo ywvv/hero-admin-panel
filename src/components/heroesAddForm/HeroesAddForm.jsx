@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuid } from "uuid";
 
 import { useHttp } from "../../hooks/http.hook";
@@ -10,6 +10,9 @@ const HeroesAddForm = () => {
   const [heroDescr, setHeroDescr] = useState("");
   const [heroElement, setHeroElement] = useState("");
 
+  const { filters, filtersLoadingStatus } = useSelector(
+    (state) => state.filters
+  );
   const dispatch = useDispatch();
   const { request } = useHttp();
 
@@ -30,6 +33,26 @@ const HeroesAddForm = () => {
     setHeroName("");
     setHeroDescr("");
     setHeroElement("");
+  };
+
+  const renderFilters = (filters, status) => {
+    if (status === "loading") {
+      return <option>Loading Items</option>;
+    } else if (status === "error") {
+      return <option>Loading error</option>;
+    }
+
+    if (filters && filters.length > 0) {
+      return filters.map(({ name, label }) => {
+        if (name === "all") return;
+
+        return (
+          <option key={name} value={name}>
+            {label}
+          </option>
+        );
+      });
+    }
   };
 
   return (
@@ -79,10 +102,7 @@ const HeroesAddForm = () => {
           onChange={(e) => setHeroElement(e.target.value)}
         >
           <option>I own the element...</option>
-          <option value="fire">Fire</option>
-          <option value="water">Water</option>
-          <option value="wind">Wind</option>
-          <option value="earth">Earth</option>
+          {renderFilters(filters, filtersLoadingStatus)}
         </select>
       </div>
 
