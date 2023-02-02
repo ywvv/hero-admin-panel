@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchFilters } from "./filtersSlice";
-import { filterChanged } from "./filtersSlice";
+import { filtersChanged, fetchFilters, selectAll } from "./filtersSlice";
+import store from "../../store";
 import Spinner from "../spinner/Spinner";
 
 const HeroesFilters = () => {
-  const { filters, filtersLoadingStatus, activeFilter } = useSelector(
+  const { filtersLoadingStatus, activeFilter } = useSelector(
     (state) => state.filters
   );
+  const filters = selectAll(store.getState());
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const HeroesFilters = () => {
           key={name}
           id={name}
           className={className + (name === activeFilter ? " active" : null)}
-          onClick={() => dispatch(filterChanged(name))}
+          onClick={() => dispatch(filtersChanged(name))}
         >
           {label}
         </button>
