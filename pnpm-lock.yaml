@@ -14,6 +14,7 @@ specifiers:
   react-redux: ^8.0.5
   react-transition-group: ^4.4.5
   redux: ^4.2.0
+  redux-thunk: ^2.4.2
   reselect: ^4.1.7
   sass: ^1.57.1
   uuid: ^9.0.0
@@ -29,6 +30,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-redux: 8.0.5_sfvtgtw6zg4uu5uf4vg7hgzorm
   redux: 4.2.0
+  redux-thunk: 2.4.2_redux@4.2.0
   reselect: 4.1.7
   uuid: 9.0.0
 
@@ -1554,6 +1556,14 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /redux-thunk/2.4.2_redux@4.2.0:
+    resolution: {integrity: sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==}
+    peerDependencies:
+      redux: ^4
+    dependencies:
+      redux: 4.2.0
+    dev: false
 
   /redux/4.2.0:
     resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
